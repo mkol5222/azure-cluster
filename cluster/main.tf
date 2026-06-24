@@ -38,8 +38,8 @@ module "example_module" {
   availability_zones             = ["1", "2"]
 
   # Smart-1 Cloud Variables
-  smart_1_cloud_token_a = "xxxxxxxxxxxx"
-  smart_1_cloud_token_b = "xxxxxxxxxxxx"
+  smart_1_cloud_token_a = var.smart1_token_a
+  smart_1_cloud_token_b = var.smart1_token_a
 
   # Networking Variables
   vnet_name                       = "checkpoint-ha-vnet"

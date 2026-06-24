@@ -33,3 +33,14 @@ variable "admin_password" {
 variable "sic_key" {
     type = string
 }
+
+// var.smart1_token_a
+// var.smart1_token_b
+variable "smart1_token_a" {
+    type = string
+    default =""
+}
+variable "smart1_token_b" {
+    type = string
+    default =""
+}
