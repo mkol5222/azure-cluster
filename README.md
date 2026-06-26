@@ -1,4 +1,12 @@
-## Azure
+## Check Point Cluster in Azure
+
+Deploying Check Point Cluster in Azure with Terraform using official [Check Point CloudGuard Network Security Terraform module](
+https://github.com/CheckPointSW/terraform-azure-cloudguard-network-security/tree/master/modules/high-availability
+)
+
+This module supports both creating new network environment and deploying Check Point Cluster into existing network environment depending on provided input variables. [reference](https://github.com/CheckPointSW/terraform-azure-cloudguard-network-security/tree/master/modules/high-availability#virtual-network)
+
+### Prerequisites
 
 Lab is depending on *dedicated Azure Service Principal* with Owner role on subscription level. This is created by user manually in advance in [Azure Shell](https://shell.azure.com/).
 
