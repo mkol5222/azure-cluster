@@ -1,0 +1,21 @@
+#!/bin/bash
+
+set -euo pipefail
+
+envId=$(dotenvx get TF_VAR_envId)
+echo "Using envId: ${envId}"
+
+
+
+# cluster first
+export TF_VAR_existing_vnet_resource_group="cluster-vnet-${envId}"
+export TF_VAR_address_space=""
+unset TF_VAR_subnet_prefixes
+export TF_VAR_frontend_subnet_name="Frontend"
+export TF_VAR_backend_subnet_name="Backend"
+
+make cluster-down
+
+
+# then VNET
+make vnet-down

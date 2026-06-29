@@ -2,7 +2,7 @@ provider "azurerm" {
   features {}
 }
 
-module "example_module" {
+module "cluster1" {
   source  = "CheckPointSW/cloudguard-network-security/azure//modules/high-availability"
   version = "~> 1.0"
 
@@ -42,11 +42,14 @@ module "example_module" {
   smart_1_cloud_token_b = var.smart1_token_a
 
   # Networking Variables
-  vnet_name                       = "checkpoint-ha-vnet"
-  frontend_subnet_name            = "Frontend"
-  backend_subnet_name             = "Backend"
-  address_space                   = "10.0.0.0/16"
-  subnet_prefixes                 = ["10.0.1.0/24", "10.0.2.0/24"]
+  vnet_name                       = var.vnet_name
+  frontend_subnet_name            = var.frontend_subnet_name
+  backend_subnet_name             = var.backend_subnet_name
+
+  existing_vnet_resource_group = var.existing_vnet_resource_group //name
+  address_space                   = var.address_space // if emprty, existing vnet will be used, else new vnet will be created with this address space
+  subnet_prefixes                 = var.subnet_prefixes
+
   nsg_id                          = ""
   storage_account_deployment_mode = "New"
   storage_account_type            = "Standard_LRS"
